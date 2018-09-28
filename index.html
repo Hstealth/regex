@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正则</title>
+</head>
+
+<body>
+  <h2>声明正则方式</h2>
+  <p>1.字符串</p>
+  <p>2.构造函数</p>
+
+  <h2>修饰符</h2>
+  <p>g:global 全文搜素，不添加，搜索到第一个匹配停止</p>
+  <p>i:ignpre case 忽略大小写,默认大小写敏感</p>
+  <p>m:multiple lines 多行搜索</p>
+
+  <h2>元字符</h2>
+  <p>正则表达式由两种基本字符类型组成：</p>
+  <p>1.原义文本字符</p>
+  <p>2.元字符</p>
+  <p>元字符是在正则表达式中有特殊含义的非字母字符</p>
+  <p>* + ? $ ^ . | \ () {} []</p>
+
+  <h2>字符类</h2>
+  <p>可以使用元字符[]来构建一个简单的类</p>
+  <p>所谓类是指符合某些特性的对象,一个泛指，而不是特指某个字符</p>
+  <p>表达式[abc]把字符a或b或c归为一类，表达式可以匹配这类的字符</p>
+
+  <h2>范围类</h2>
+  <p>[a-z0-9-A-Z]</p>
+
+  <h2>预定义类</h2>
+  <p>. : 等价于 [^\r\n] 除了回车符和换行符之外的所有字符</p>
+  <p>\d : 等价于 [0-9] 数字字符 </p>
+  <p>\D : 等价于 [^0-9] 非数字字符</p>
+  <p>\s : 等价于 [\t\n\x0B\f\r] 空白符 </p>
+  <p>\S : 等价于 [^\t\n\x0B\f\r] 非空白符 </p>
+  <p>\w : 等价于 [a-zA-Z0-9_] 单词数字下划线 </p>
+  <p>\W : 等价于 [^a-zA-Z0-9_] 非单词数字下划线 </p>
+  <p>匹配一个 ab+数字+任意字符的字符串 ab\d.</p>
+
+  <h2>边界</h2>
+  <p>^:以什么开始</p>
+  <p>$:以什么结尾</p>
+  <p>\b:单词边界</p>
+  <p>\B 非单词边界</p>
+
+  <h2>量词</h2>
+  <p>?: 出现0次或者一次</p>
+  <p>+:至少出现一次</p>
+  <p>*:出现任意次 0-n</p>
+  <p>{n}:出现n次</p>
+  <p>{n,m}:出现n-m次</p>
+  <p>{n,}:至少出现n次</p>
+  <p>\d{10}</p>
+
+  <h2>贪婪模式</h2>
+  <p>尽可能多的匹配</p>
+  <h2>非贪婪模式</h2>
+  <p>{3,6}?</p>
+
+  <h2>分组</h2>
+  <p>使用()可以达到分组的功能，使量词作用于分组</p>
+  <p>(abc){10}</p>
+
+  <h2>或</h2>
+  <p>使用|可以达到或的效果</p>
+  <p>aa(a|b)bb</p>
+
+  <h2>反向引用</h2>
+  <p>2015-12-25 变成12-2015-25</p>
+  <p>/(\d{4})-(\d{2})-(\d{2}) $2/$3/$1</p>
+
+  <h2>忽略分组</h2>
+  <p>不希望捕获某些分组，只需要在分组内加上？：就可以</p>
+  (?:aa)
+
+  <h2>前瞻</h2>
+  <p>正向前瞻 exp(?=asset) 就是找到前面的匹配还要考虑符合这个规则不</p>
+  <p>负向前瞻 exp(?!asset)</p>
+  <p>'a2*3.replace('\w(?=\d)','X')</p>
+
+
+  <h2>对象属性</h2>
+  
+  <script>
+    // let reg = /\bis\b/g    // /b 单词的边界 g 全文匹配
+    // let reg = new RegExp('\\bis\\b', 'g')
+    // let str = 'He is a Boy. This is a dog. where is she'
+    // let a = str.replace(reg, 'IS')
+    // console.log(a)
+
+    //修饰符 i
+    // let reg1 = /\bis\b/gi
+    // let str1 = 'He is a Boy. This IS a dog. where Is she'
+    // let b = str1.replace(reg1, 0)
+    // console.log(i)
+
+    //字符类
+    // let str2 = 'a1b2c3d4e5'
+    // let reg2 = /[a-z]/g
+    //字符类取反
+    // let reg21 = /[^a-z]/g
+    // let c = str2.replace(reg21,'-')
+    // console.log(c) 
+
+  </script>
+</body>
+
+</html>
